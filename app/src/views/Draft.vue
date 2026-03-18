@@ -1,24 +1,27 @@
 <template>
   <div class="container">
-    <PokemonCard v-for="(mon, index) in pokemon" :key="mon.name" :pokemon="mon" :id="index + 1" />
+    <DeathCard v-for="(cause) in deaths" :key="index" :death="cause" />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import PokemonCard from '@/components/PokemonCard.vue'
-const pokemon = ref([])
-async function getPokemon() {
+import DeathCard from '@/components/DeathCard.vue'
+
+const deaths = ref([])
+
+async function getDeaths() {
   try {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0')
+    const response = await fetch('https://data.cityofnewyork.us/resource/jb7j-dtam.json')
     const data = await response.json()
-    pokemon.value = data.results
+    deaths.value = data
   } catch (error) {
-    console.log(error)
+    console.log("Fetch error:", error)
   }
 }
+
 onMounted(() => {
-  getPokemon()
+  getDeaths()
 })
 </script>
 
