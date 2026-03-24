@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <NycDeathsChart />
+    <LeadingCausesChart />
   </div>
 </template>
 
 <script setup>
-import NycDeathsChart from '@/components/NycDeathsChart.vue'
+import LeadingCausesChart from '@/components/LeadingCausesChart.vue'
 </script>
 
 <style scoped>
