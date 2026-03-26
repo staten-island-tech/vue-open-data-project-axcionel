@@ -10,7 +10,6 @@ const router = createRouter({
       name: 'home',
       component: Draft,
     },
-    // 2. Add the new route object
     {
       path: '/leading-causes',
       name: 'leadingCauses',
